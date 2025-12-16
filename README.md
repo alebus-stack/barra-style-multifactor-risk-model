@@ -1,2 +1,95 @@
-# barra-style-multifactor-risk-model
-his project implements a **Barra-style equity multi-factor risk model** from scratch using Python, following the methodology used by institutional risk systems. The model decomposes portfolio risk into **systematic factor risk** and **idiosyncratic risk**, and estimates factor covariances dynamically.
+# Barra-Style Multi-Factor Portfolio Risk Model
+
+This project implements a **Barra-style equity multi-factor risk model** from scratch using Python, following the methodology used by institutional risk systems.
+
+The model decomposes portfolio risk into **systematic factor risk** and **idiosyncratic risk**, and estimates factor covariances dynamically.
+
+---
+
+## Model Overview
+
+The pipeline follows these steps:
+
+1. **Universe Selection**
+   - S&P 500 equities
+   - Daily total returns
+
+2. **Factor Construction**
+   - Style factors:
+     - Value
+     - Growth
+     - Momentum
+     - Volatility
+     - Size
+     - Quality
+     - Leverage
+   - Industry factors using sector dummy variables
+
+3. **Cross-Sectional Regression**
+   - Daily estimation of factor returns using stock-level exposures
+
+4. **Factor Covariance Estimation**
+   - Exponentially Weighted Moving Average (EWMA)
+
+5. **Specific Risk Estimation**
+   - Idiosyncratic variance from regression residuals
+
+6. **Portfolio Risk Decomposition**
+   - Factor risk contribution
+   - Specific risk contribution
+   - Total portfolio volatility
+
+---
+
+## Mathematical Framework
+
+For each day:
+
+\[
+r_i = X_i f + \epsilon_i
+\]
+
+Where:
+- \( r_i \) = asset return
+- \( X_i \) = factor exposures
+- \( f \) = factor returns
+- \( \epsilon_i \) = idiosyncratic return
+
+Portfolio variance:
+
+\[
+\sigma_p^2 = w^\top X \Sigma_f X^\top w + w^\top \Sigma_\epsilon w
+\]
+
+---
+
+## Outputs
+
+- Daily factor return time series
+- Factor covariance matrix
+- Asset-specific risk estimates
+- Portfolio risk attribution by factor
+
+---
+
+## Technologies Used
+
+- Python
+- pandas, numpy
+- statsmodels / scikit-learn
+- matplotlib / seaborn
+
+---
+
+## Applications
+
+- Equity portfolio risk management
+- Factor exposure monitoring
+- Stress testing and scenario analysis
+- Foundation for alpha + risk integrated models
+
+---
+
+## Disclaimer
+
+This project is for **educational and research purposes only** and does not replicate proprietary MSCI Barra models.
