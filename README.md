@@ -45,21 +45,25 @@ The pipeline follows these steps:
 
 For each day:
 
-\[
-r_i = X_i f + \epsilon_i
-\]
+rᵢ = 𝐗ᵢ · 𝐟 + εᵢ
+
 
 Where:
-- \( r_i \) = asset return
-- \( X_i \) = factor exposures
-- \( f \) = factor returns
-- \( \epsilon_i \) = idiosyncratic return
+rᵢ = return of asset i
+𝐗ᵢ = vector of factor exposures for asset i
+𝐟 = vector of factor returns
+εᵢ = asset-specific (idiosyncratic) return
 
 Portfolio variance:
 
-\[
-\sigma_p^2 = w^\top X \Sigma_f X^\top w + w^\top \Sigma_\epsilon w
-\]
+σₚ² = 𝐰ᵀ · 𝐗 · Σ𝐟 · 𝐗ᵀ · 𝐰 + 𝐰ᵀ · Σε · 𝐰
+
+Where:
+σₚ² = total portfolio variance
+𝐰 = vector of portfolio weights
+𝐗 = matrix of factor exposures
+Σ𝐟 = covariance matrix of factor returns
+Σε = diagonal matrix of specific variances
 
 ---
 
