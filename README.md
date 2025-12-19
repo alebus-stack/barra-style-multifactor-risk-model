@@ -94,6 +94,3 @@ Where:
 
 ---
 
-## Disclaimer
-
-This project is for **educational and research purposes only** and does not replicate proprietary MSCI Barra models.
